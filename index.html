@@ -11,15 +11,19 @@
   Archivo único y autocontenido (HTML + CSS + JS). Solo depende de Google Fonts.
 
   GUÍA RÁPIDA DE EDICIÓN (busca estos textos con Ctrl/Cmd + F):
-   1. WHATSAPP  → busca  [NUMERO]  y reemplázalo por 52 + número a 10 dígitos
-                  (ej. https://wa.me/524771320915). Aparece en varios botones.
+   1. WHATSAPP  → ya está puesto: 524771320915 (busca "wa.me" para encontrar
+                  los botones si hay que cambiarlo más adelante).
    2. CORREO    → busca  asesoria@arpatrimonial.com.mx
    3. REDES     → solo Facebook, en el pie de página (busca  facebook.com).
    4. DOMINIO   → busca  www.tudominio.com  (canonical, og:url, og:image, JSON-LD).
-   5. FOTOS     → todas las fotos son de banco de imágenes (Unsplash) y llevan un
-                  comentario que empieza con la palabra FOTO justo arriba de la
-                  imagen. Para cambiar una, reemplaza solo el valor de src="..."
-                  (y srcset si lo tiene).
+   5. FOTOS     → 4 fotos ya son de Arturo (archivos .webp junto a este index.html:
+                  arturo-saludo-cliente, arturo-entrega-documentos, arturo-retrato-1,
+                  arturo-presentacion-plan). El resto sigue siendo de banco de imágenes
+                  (Unsplash). Todas llevan un comentario que empieza con la palabra FOTO
+                  justo arriba de la imagen; para cambiar una, reemplaza solo el valor
+                  de src="..." (y srcset si lo tiene).
+                  Sobran dos fotos de Arturo sin usar: arturo-retrato-2.webp y
+                  arturo-reunion-oficina.webp (la sección "Cómo trabajo" ya no lleva foto).
    6. COLORES   → variables CSS al inicio de <style> (sección :root).
    7. FORMULARIO→ busca  INTEGRAR ENVÍO  en el <script> final.
   ============================================================================
@@ -397,11 +401,9 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .moment p{color:var(--muted);margin-bottom:18px}
 
 /* ==========================================================================
-   11. MÉTODO — así trabajamos (sección oscura con foto)
+   11. MÉTODO — así trabajamos (sección oscura, sin foto)
    ========================================================================== */
 .method{position:relative;background:var(--ink);color:#fff;overflow:hidden}
-.method__bg{position:absolute;inset:0;z-index:0}
-.method__bg img{width:100%;height:100%;object-fit:cover;opacity:.2}
 .method .wrap{position:relative;z-index:1}
 .method .eyebrow{color:#fff}
 .method .h2{color:#fff}
@@ -591,8 +593,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <a href="#metodo">Cómo trabajo</a>
       <a href="#arturo">Sobre mí</a>
       <a href="#contacto">Contacto</a>
-      <!-- WHATSAPP: reemplaza [NUMERO] -->
-      <a class="btn btn--navy btn--sm" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Escríbeme <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--navy btn--sm" href="https://wa.me/524771320915" target="_blank" rel="noopener">Escríbeme <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </nav>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
@@ -608,7 +609,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <div>
-    <a class="btn btn--teal" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Escríbeme por WhatsApp <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn--teal" href="https://wa.me/524771320915" target="_blank" rel="noopener">Escríbeme por WhatsApp <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <small>asesoria@arpatrimonial.com.mx</small>
   </div>
 </div>
@@ -635,7 +636,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       </p>
 
       <div class="hero__cta in" style="transition-delay:.32s">
-        <a class="btn btn--navy" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Solicita tu asesoría sin costo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--navy" href="https://wa.me/524771320915" target="_blank" rel="noopener">Solicita tu asesoría sin costo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="tlink" href="#metodo">Ver cómo trabajo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -643,11 +644,10 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
     <div class="hero__visual in-x">
       <div class="hero__slash" aria-hidden="true"></div>
       <div class="hero__photo" data-parallax>
-        <!-- FOTO: familia caminando hacia su casa (reemplazable por foto propia) -->
-        <img src="https://images.unsplash.com/photo-1543095834-7445b8af8c2b?auto=format&fit=crop&w=1100&q=70"
-             srcset="https://images.unsplash.com/photo-1543095834-7445b8af8c2b?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1543095834-7445b8af8c2b?auto=format&fit=crop&w=1100&q=70 1100w, https://images.unsplash.com/photo-1543095834-7445b8af8c2b?auto=format&fit=crop&w=1500&q=70 1500w"
-             sizes="(min-width:960px) 44vw, 100vw" width="1100" height="1300" fetchpriority="high"
-             alt="Familia caminando junta hacia su hogar">
+        <!-- FOTO: Arturo Rodríguez saludando a un cliente -->
+        <img src="arturo-saludo-cliente.webp"
+             sizes="(min-width:960px) 44vw, 100vw" width="1086" height="1448" fetchpriority="high"
+             alt="Arturo Rodríguez saludando de mano a un cliente">
       </div>
     </div>
 
@@ -680,10 +680,10 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 
     <figure class="circuit__fig">
       <div class="circuit__img wipe">
-        <!-- FOTO: familia en el campo -->
-        <img class="px" data-speed=".07" loading="lazy" width="900" height="1100"
-             src="https://images.unsplash.com/photo-1588979355313-6711a095465f?auto=format&fit=crop&w=900&q=70"
-             alt="Familia disfrutando junta al aire libre">
+        <!-- FOTO: Arturo entregando la carpeta de protección a un cliente -->
+        <img class="px" data-speed=".07" loading="lazy" width="1374" height="1145"
+             src="arturo-entrega-documentos.webp"
+             alt="Arturo Rodríguez entregando la carpeta de su plan de protección a unos clientes">
       </div>
       <div class="circuit__slash" aria-hidden="true"></div>
     </figure>
@@ -748,7 +748,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
             <p>Protege a tu familia y construye ahorro al mismo tiempo: para tu retiro, para la educación de tus hijos o para dejar una herencia.</p>
             <ul class="acc__tags"><li>Seguro de vida</li><li>Vida con ahorro</li><li>Retiro</li><li>Educación</li><li>Dotal</li><li>Herencia</li></ul>
             <p class="acc__note">Consulta la posibilidad de hacer las aportaciones de tu plan de ahorro a MSI (meses sin intereses). Aplican condiciones de cada aseguradora.</p>
-            <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Cotiza tu plan de ahorro <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza tu plan de ahorro <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
@@ -757,7 +757,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <div class="acc__panel"><div><div class="acc__body">
             <p>Para que una enfermedad o un accidente no ponga en riesgo tu patrimonio. Pólizas individuales, familiares y para empresas, con planes complementarios.</p>
             <ul class="acc__tags"><li>Individual</li><li>Familiar</li><li>Empresarial</li><li>Indemnización por padecimientos</li><li>Gastos médicos menores</li><li>Exceso</li><li>Conversión de colectivo a individual</li></ul>
-            <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Cotiza gastos médicos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza gastos médicos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
@@ -766,7 +766,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <div class="acc__panel"><div><div class="acc__body">
             <p>Cobertura para tu auto y tu responsabilidad, con opciones para uso particular, comercial y flotillas. Comparo varias aseguradoras para que pagues lo justo.</p>
             <ul class="acc__tags"><li>Autos particulares</li><li>Motos</li><li>Vehículos comerciales</li><li>Flotillas</li></ul>
-            <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Cotiza tu auto <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza tu auto <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
@@ -775,7 +775,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <div class="acc__panel"><div><div class="acc__body">
             <p>Tu casa es probablemente tu mayor inversión. Protégela, y viaja con respaldo cuando salgas de ella.</p>
             <ul class="acc__tags"><li>Seguro de hogar</li><li>Seguro de viajero</li></ul>
-            <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Cotiza tu hogar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza tu hogar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
@@ -784,7 +784,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <div class="acc__panel"><div><div class="acc__body">
             <p>Seguros y fianzas para que tu negocio y tu responsabilidad estén cubiertos, sin frenar tu crecimiento.</p>
             <ul class="acc__tags"><li>Seguro PyME</li><li>RC profesional</li><li>RC empresarial</li><li>RC contratista</li><li>RC ambiental</li><li>Fianzas</li></ul>
-            <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Asesoría para mi empresa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Asesoría para mi empresa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
@@ -812,7 +812,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <span class="moment__n">Retiro y salud</span>
         <h3>Estoy empezando a planear mi retiro</h3>
         <p>Un plan de ahorro para tu retiro y un seguro de gastos médicos que te respalde. Entre más pronto empiezas, más a tu favor trabaja el tiempo.</p>
-        <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="moment reveal" data-delay=".12">
@@ -823,7 +823,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <span class="moment__n">Educación</span>
         <h3>Mi hijo acaba de llegar</h3>
         <p>Empieza hoy el ahorro para su educación. Desde los primeros años, tu hijo ya tiene un futuro respaldado.</p>
-        <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="moment reveal" data-delay=".24">
@@ -834,7 +834,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <span class="moment__n">Herencia</span>
         <h3>Quiero dejar tranquila a mi familia</h3>
         <p>Planea tu herencia a través de un seguro de vida, para que los tuyos tengan certeza cuando más lo necesiten.</p>
-        <a class="tlink" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
     </div>
   </div>
@@ -844,10 +844,6 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
      MÉTODO — así trabajamos
      ================================================================== -->
 <section class="sec method" id="metodo">
-  <div class="method__bg" aria-hidden="true">
-    <!-- FOTO: firma de documentos / laptop -->
-    <img class="px" data-speed=".06" loading="lazy" width="1600" height="1000" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=60" alt="">
-  </div>
   <div class="wrap">
     <p class="eyebrow reveal">Cómo trabajo</p>
     <h2 class="h2 reveal" data-delay=".08">Cuatro pasos <em>claros</em>,<br>sin letra chiquita</h2>
@@ -860,7 +856,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
     </ol>
 
     <div class="method__cta reveal">
-      <a class="btn btn--teal" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Empezar por el paso 1 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn--teal" href="https://wa.me/524771320915" target="_blank" rel="noopener">Empezar por el paso 1 <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <span>Mi asesoría no tiene costo directo para ti.</span>
     </div>
   </div>
@@ -889,8 +885,8 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 
     <figure class="about__fig">
       <div class="about__img wipe">
-        <!-- FOTO: REEMPLAZAR por un retrato profesional de Arturo Rodríguez -->
-        <img class="px" data-speed=".06" loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=70" alt="Apretón de manos al concretar un acuerdo de asesoría">
+        <!-- FOTO: retrato profesional de Arturo Rodríguez -->
+        <img class="px" data-speed=".06" loading="lazy" width="1086" height="1448" src="arturo-retrato-1.webp" alt="Retrato de Arturo Rodríguez, asesor patrimonial">
       </div>
       <div class="about__slash" aria-hidden="true"></div>
     </figure>
@@ -903,13 +899,13 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
      ================================================================== -->
 <section class="band" aria-label="Tranquilidad para ti">
   <div class="band__img">
-    <!-- FOTO: papá e hijo al atardecer -->
-    <img class="px" data-speed=".1" loading="lazy" width="1800" height="1100" src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&w=1800&q=65" alt="Papá y su hija caminando al atardecer">
+    <!-- FOTO: Arturo presentando un plan de ahorro para el retiro -->
+    <img class="px" data-speed=".1" loading="lazy" width="1374" height="1145" src="arturo-presentacion-plan.webp" alt="Arturo Rodríguez presentando un plan de ahorro para el retiro a unos clientes">
   </div>
   <div class="band__veil"></div>
   <div class="wrap">
     <h2 class="reveal">Tranquilidad para ti. <em>Protección</em> para los tuyos.</h2>
-    <a class="btn btn--teal reveal" data-delay=".12" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">Quiero mi asesoría <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn--teal reveal" data-delay=".12" href="https://wa.me/524771320915" target="_blank" rel="noopener">Quiero mi asesoría <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
@@ -952,7 +948,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <p class="lead reveal" data-delay=".14">Cuéntame tu situación y te respondo con el siguiente paso. Prefiero WhatsApp o correo, así te contesto con calma y con toda la información.</p>
 
       <ul class="cinfo reveal">
-        <li><small>WhatsApp</small><a href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">477 132 0915</a></li>
+        <li><small>WhatsApp</small><a href="https://wa.me/524771320915" target="_blank" rel="noopener">477 132 0915</a></li>
         <li><small>Correo</small><a href="mailto:asesoria@arpatrimonial.com.mx">asesoria@arpatrimonial.com.mx</a></li>
         <li><small>Horario</small><span class="status"><span class="dot" id="dot2"></span><span id="status2">De 9:00 a 18:00 hrs (puede variar)</span></span></li>
         <li><small>Ubicación</small><span>León, Guanajuato · citas en lugar acordado</span></li>
@@ -1021,7 +1017,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="https://wa.me/[NUMERO]" target="_blank" rel="noopener">WhatsApp: 477 132 0915</a></li>
+          <li><a href="https://wa.me/524771320915" target="_blank" rel="noopener">WhatsApp: 477 132 0915</a></li>
           <li><a href="mailto:asesoria@arpatrimonial.com.mx">asesoria@arpatrimonial.com.mx</a></li>
           <li>León, Guanajuato</li>
         </ul>
@@ -1041,7 +1037,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 </footer>
 
 <!-- ===== BOTÓN FLOTANTE DE WHATSAPP (visible en toda la página) ===== -->
-<a class="wa" href="https://wa.me/[NUMERO]" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="wa" href="https://wa.me/524771320915" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <span class="wa__label">Escríbeme por WhatsApp</span>
   <span class="wa__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></span>
 </a>
