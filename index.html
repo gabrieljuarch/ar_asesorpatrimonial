@@ -385,14 +385,20 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .acc__note{font-size:.9rem;color:var(--ink);border-left:3px solid var(--teal);padding-left:14px;margin-bottom:20px}
 
 /* ==========================================================================
-   10. ETAPAS DE VIDA — tres fotos escalonadas
+   10. ETAPAS DE VIDA — cuatro fotos escalonadas
    ========================================================================== */
 .moments__head{max-width:760px}
 .moments__grid{display:grid;gap:clamp(44px,6vw,60px);margin-top:clamp(44px,6vw,80px)}
-@media (min-width:860px){
-  .moments__grid{grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.4vw,56px);align-items:start}
-  .moment:nth-child(2){margin-top:clamp(48px,7vw,110px)}
-  .moment:nth-child(3){margin-top:clamp(20px,3vw,50px)}
+@media (min-width:640px){
+  .moments__grid{grid-template-columns:repeat(2,1fr);gap:clamp(40px,5vw,56px) clamp(24px,3.4vw,56px);align-items:start}
+  .moment:nth-child(even){margin-top:clamp(40px,6vw,80px)}
+}
+@media (min-width:1100px){
+  .moments__grid{grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,40px)}
+  .moment:nth-child(n){margin-top:0}
+  .moment:nth-child(2){margin-top:90px}
+  .moment:nth-child(3){margin-top:30px}
+  .moment:nth-child(4){margin-top:120px}
 }
 .moment figure{overflow:hidden;aspect-ratio:4/5}
 .moment img{width:100%;height:100%;object-fit:cover}
@@ -734,8 +740,10 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?auto=format&fit=crop&w=900&q=70" alt="Médico atendiendo a un niño junto a su mamá">
         <!-- FOTO: auto -->
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1551952237-954a0e68786c?auto=format&fit=crop&w=900&q=70" alt="Auto circulando por una carretera abierta">
-        <!-- FOTO: hogar y viajes -->
+        <!-- FOTO: hogar -->
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=70" alt="Casa moderna con alberca">
+        <!-- FOTO: viajes -->
+        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1593182440709-4b7b56482c55?auto=format&fit=crop&w=900&q=70" alt="Ala de un avión sobre las nubes">
         <!-- FOTO: empresas -->
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1687422808191-93810cd07ab0?auto=format&fit=crop&w=900&q=70" alt="Dueño de un negocio frente a su local">
       </div>
@@ -771,16 +779,25 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         </div>
 
         <div class="acc__item" data-img="3">
-          <button class="acc__btn" aria-expanded="false"><span class="acc__n">04</span><span class="acc__t">Hogar y viajes</span><span class="acc__ic" aria-hidden="true"></span></button>
+          <button class="acc__btn" aria-expanded="false"><span class="acc__n">04</span><span class="acc__t">Seguro de hogar</span><span class="acc__ic" aria-hidden="true"></span></button>
           <div class="acc__panel"><div><div class="acc__body">
-            <p>Tu casa es probablemente tu mayor inversión. Protégela, y viaja con respaldo cuando salgas de ella.</p>
-            <ul class="acc__tags"><li>Seguro de hogar</li><li>Seguro de viajero</li></ul>
+            <p>Tu casa es probablemente tu mayor inversión. Protégela frente a imprevistos para que tu familia y tu patrimonio estén tranquilos.</p>
+            <ul class="acc__tags"><li>Seguro de hogar</li><li>Incendio y explosión</li><li>Robo</li></ul>
             <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza tu hogar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div></div></div>
         </div>
 
         <div class="acc__item" data-img="4">
-          <button class="acc__btn" aria-expanded="false"><span class="acc__n">05</span><span class="acc__t">Empresas</span><span class="acc__ic" aria-hidden="true"></span></button>
+          <button class="acc__btn" aria-expanded="false"><span class="acc__n">05</span><span class="acc__t">Seguro de viajes</span><span class="acc__ic" aria-hidden="true"></span></button>
+          <div class="acc__panel"><div><div class="acc__body">
+            <p>Viaja protegido, ya sea dentro del país o en el extranjero. Con respaldo ante los imprevistos, tú solo piensa en disfrutar tu viaje.</p>
+            <ul class="acc__tags"><li>Seguro de viajero</li><li>Viajes nacionales</li><li>Viajes al extranjero</li></ul>
+            <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Cotiza tu viaje <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div></div></div>
+        </div>
+
+        <div class="acc__item" data-img="5">
+          <button class="acc__btn" aria-expanded="false"><span class="acc__n">06</span><span class="acc__t">Empresas</span><span class="acc__ic" aria-hidden="true"></span></button>
           <div class="acc__panel"><div><div class="acc__body">
             <p>En empresas, seguros y fianzas para que tu negocio esté cubierto sin frenar tu crecimiento.</p>
             <ul class="acc__tags"><li>Seguro PyME</li><li>RC profesional</li><li>RC empresarial</li><li>RC contratista</li><li>RC ambiental</li><li>Fianzas</li></ul>
@@ -809,13 +826,24 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <!-- FOTO: pareja caminando -->
           <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1625690987114-86f5af994b49?auto=format&fit=crop&w=800&q=70" alt="Pareja caminando abrazada">
         </figure>
-        <span class="moment__n">Retiro y salud</span>
+        <span class="moment__n">Retiro</span>
         <h3>Estoy empezando a planear mi retiro</h3>
-        <p>Un plan de ahorro para tu retiro y un seguro de gastos médicos que te respalde. Entre más pronto empiezas, más a tu favor trabaja el tiempo.</p>
+        <p>Un plan de ahorro para tu retiro. Entre más pronto empiezas, más a tu favor trabaja el tiempo.</p>
         <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
       <article class="moment reveal" data-delay=".12">
+        <figure class="wipe">
+          <!-- FOTO: médico con abuelo y nieto -->
+          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1758691462666-6470b740f544?auto=format&fit=crop&w=800&q=70" alt="Médico atendiendo a un abuelo y a su nieto en consulta">
+        </figure>
+        <span class="moment__n">Salud</span>
+        <h3>Quiero cuidar mi salud y la de mi familia</h3>
+        <p>Un seguro de gastos médicos que te respalde ante una enfermedad o un accidente, para que tus ahorros no se vayan en una emergencia.</p>
+        <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+
+      <article class="moment reveal" data-delay=".24">
         <figure class="wipe">
           <!-- FOTO: mamá con bebé -->
           <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1560707854-fb9a10eeaace?auto=format&fit=crop&w=800&q=70" alt="Mamá sonriendo con su bebé en brazos">
@@ -826,7 +854,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <a class="tlink" href="https://wa.me/524771320915" target="_blank" rel="noopener">Platícame tu caso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
 
-      <article class="moment reveal" data-delay=".24">
+      <article class="moment reveal" data-delay=".36">
         <figure class="wipe">
           <!-- FOTO: papá abrazando a su hija -->
           <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1624272864537-8ecc72b67958?auto=format&fit=crop&w=800&q=70" alt="Papá abrazando y riendo con su hija">
@@ -971,7 +999,8 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <option>Seguro de vida y ahorro (retiro, educación, herencia)</option>
           <option>Seguro de gastos médicos</option>
           <option>Seguro de auto</option>
-          <option>Seguro de hogar o de viajero</option>
+          <option>Seguro de hogar</option>
+          <option>Seguro de viajes</option>
           <option>Seguros para mi empresa (PyME, RC, fianzas)</option>
           <option>No lo tengo claro, necesito asesoría</option>
         </select>
