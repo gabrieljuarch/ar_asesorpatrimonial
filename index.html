@@ -8,7 +8,7 @@
   ============================================================================
   AR ASESOR PATRIMONIAL — Landing page · Arturo Rodríguez (León, Guanajuato)
   ============================================================================
-  Archivo único y autocontenido (HTML + CSS + JS). Solo depende de Google Fonts.
+  Sitio de una sola página (HTML + CSS + JS en index.html) más sus fotos y fuentes locales.
 
   GUÍA RÁPIDA DE EDICIÓN (busca estos textos con Ctrl/Cmd + F):
    1. WHATSAPP  → ya está puesto: 524771320915 (busca "wa.me" para encontrar
@@ -16,25 +16,33 @@
    2. CORREO    → busca  asesoria@arpatrimonial.com.mx
    3. REDES     → Facebook e Instagram, en el pie de página (busca  facebook.com / instagram.com).
    4. DOMINIO   → arpatrimonial.com.mx (busca esa palabra: canonical, og:url, og:image, JSON-LD).
-   5. FOTOS     → 4 fotos ya son de Arturo (archivos .webp junto a este index.html:
-                  arturo-saludo-cliente, arturo-entrega-documentos, arturo-retrato-1,
-                  arturo-presentacion-plan). El resto sigue siendo de banco de imágenes
-                  (Unsplash). Todas llevan un comentario que empieza con la palabra FOTO
-                  justo arriba de la imagen; para cambiar una, reemplaza solo el valor
-                  de src="..." (y srcset si lo tiene).
-                  Sobran dos fotos de Arturo sin usar: arturo-retrato-2.webp y
-                  arturo-reunion-oficina.webp (ya no se usan en el sitio).
+   5. FOTOS     → todas las fotos son archivos .webp junto a este index.html.
+                  Fotos de Arturo: arturo-saludo-cliente, arturo-entrega-documentos,
+                  arturo-retrato-1, arturo-presentacion-plan. El resto (servicio-*,
+                  etapa-*, donde-atiendo-asesor) son de banco de imágenes ya guardadas
+                  en el sitio. Cada imagen lleva un comentario FOTO justo arriba; para
+                  cambiar una, sube la nueva .webp y reemplaza el valor de src="...".
+                  Sin uso: arturo-retrato-2.webp y arturo-reunion-oficina.webp.
    6. COLORES   → variables CSS al inicio de <style> (sección :root).
    7. FORMULARIO→ busca  INTEGRAR ENVÍO  en el <script> final.
+   8. SEO       → título y descripción de Google: busca  EDITAR TÍTULO Y DESCRIPCIÓN
+                  (justo debajo de este comentario). Los datos para Google del negocio
+                  (teléfono, redes, servicios) están en el bloque  application/ld+json.
+   9. ANALYTICS → busca  GOOGLE ANALYTICS 4  (bloque comentado: pega tu ID G-XXXXXXXXXX).
   ============================================================================
 -->
 
-<!-- ============================ SEO BÁSICO ============================ -->
-<title>AR Asesor Patrimonial | Seguros y asesoría patrimonial en León, Guanajuato</title>
-<meta name="description" content="Arturo Rodríguez, asesor patrimonial y agente de seguros en León, Guanajuato. Seguros de vida y ahorro, gastos médicos, auto y más. Compara aseguradoras y protege a tu familia.">
-<meta name="keywords" content="asesor patrimonial León Guanajuato, agente de seguros León, seguro de gastos médicos, seguro de auto, seguro de vida con ahorro, ahorro para el retiro, seguro educativo, Bajío">
+<!-- ============================ SEO BÁSICO ============================
+     EDITAR TÍTULO Y DESCRIPCIÓN: es una página de una sola pantalla, por eso hay un
+     único título y una única descripción para todo el sitio.
+     · Título: ideal hasta 60 caracteres.  · Descripción: ideal hasta 155 caracteres.
+     Si cambias el título o la descripción, cámbialos también en las líneas og: y twitter:.
+     ==================================================================== -->
+<title>AR Asesor Patrimonial | Seguros en León, Guanajuato</title>
+<meta name="description" content="Arturo Rodríguez, asesor patrimonial en León, Guanajuato. Seguros de vida y ahorro, gastos médicos, auto, hogar, viajes y empresas. Cotiza sin costo.">
+<meta name="keywords" content="asesor patrimonial León Guanajuato, agente de seguros León, seguro de gastos médicos, seguro de auto, seguro de vida con ahorro, ahorro para el retiro, seguro de viajes, seguro de hogar, Bajío">
 <meta name="author" content="Arturo Rodríguez — AR Asesor Patrimonial">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://arpatrimonial.com.mx/">
 
 <!-- Open Graph / redes sociales -->
@@ -42,47 +50,110 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://arpatrimonial.com.mx/">
 <meta property="og:site_name" content="AR Asesor Patrimonial">
-<meta property="og:title" content="AR Asesor Patrimonial | Seguros y asesoría patrimonial en León, Gto.">
-<meta property="og:description" content="Asesoría patrimonial integral que protege a las familias de México. Seguros de vida y ahorro, gastos médicos, auto, hogar y empresa.">
-<meta property="og:image" content="https://arpatrimonial.com.mx/arturo-saludo-cliente.webp">
+<meta property="og:title" content="AR Asesor Patrimonial | Seguros en León, Guanajuato">
+<meta property="og:description" content="Asesoría patrimonial integral que protege a las familias de México. Seguros de vida y ahorro, gastos médicos, auto, hogar, viajes y empresas.">
+<meta property="og:image" content="https://arpatrimonial.com.mx/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Arturo Rodríguez, asesor patrimonial, presentando un plan de ahorro para el retiro a unos clientes">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AR Asesor Patrimonial | León, Guanajuato">
+<meta name="twitter:title" content="AR Asesor Patrimonial | Seguros en León, Guanajuato">
 <meta name="twitter:description" content="Asesoría patrimonial integral que protege a las familias de México.">
+<meta name="twitter:image" content="https://arpatrimonial.com.mx/og-image.jpg">
 
 <!-- Sitio de un solo esquema de color (sin modo oscuro) -->
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#1D4A83">
 
-<!-- Favicon: marca AR sobre azul (SVG incrustado) -->
+<!-- Favicons: marca AR (Google pide un archivo de 48 px o múltiplo; el SVG es para navegadores) -->
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231D4A83'/%3E%3Cg transform='translate(11 22.7) scale(.0912) translate(-258 -338)'%3E%3Cpath fill='%2324C2CE' d='M508 340H568L322 936H260Z'/%3E%3Cpath fill='white' fill-rule='evenodd' d='M628 340H890A200 200 0 0 1 995 710L1111 935H992L888 732H800V935H694V821H555L511 935H383ZM694 452L596 716H694ZM800 450H895A88 88 0 0 1 895 626H800Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- Datos estructurados (SEO local) -->
+<!-- Datos estructurados Schema.org (negocio local de seguros + sitio web) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "InsuranceAgency",
-  "name": "AR Asesor Patrimonial",
-  "description": "Asesoría patrimonial integral y seguros de vida y ahorro, gastos médicos, auto, hogar y empresa en León, Guanajuato.",
-  "founder": { "@type": "Person", "name": "Arturo Rodríguez" },
-  "url": "https://arpatrimonial.com.mx/",
-  "email": "asesoria@arpatrimonial.com.mx",
-  "telephone": "+524771320915",
-  "image": "https://arpatrimonial.com.mx/arturo-saludo-cliente.webp",
-  "address": { "@type": "PostalAddress", "addressLocality": "León", "addressRegion": "Guanajuato", "addressCountry": "MX" },
-  "areaServed": ["León, Guanajuato", "Guadalajara, Jalisco", "Querétaro", "México"],
-  "sameAs": ["https://www.facebook.com/asesoriapatrimonialAR", "https://www.instagram.com/ar_asesoriapatrimonial/"]
+  "@graph": [
+    {
+      "@type": "InsuranceAgency",
+      "@id": "https://arpatrimonial.com.mx/#negocio",
+      "name": "AR Asesor Patrimonial",
+      "alternateName": "Arturo Rodríguez, asesor patrimonial",
+      "description": "Asesoría patrimonial integral y seguros de vida y ahorro, gastos médicos, auto, hogar, viajes y empresas en León, Guanajuato y todo México.",
+      "url": "https://arpatrimonial.com.mx/",
+      "logo": { "@type": "ImageObject", "url": "https://arpatrimonial.com.mx/logo-512.png", "width": 512, "height": 512 },
+      "image": ["https://arpatrimonial.com.mx/og-image.jpg", "https://arpatrimonial.com.mx/arturo-saludo-cliente.webp"],
+      "founder": {
+        "@type": "Person",
+        "name": "Arturo Rodríguez",
+        "jobTitle": "Asesor patrimonial y agente de seguros",
+        "image": "https://arpatrimonial.com.mx/arturo-retrato-1.webp"
+      },
+      "email": "asesoria@arpatrimonial.com.mx",
+      "telephone": "+524771320915",
+      "address": { "@type": "PostalAddress", "addressLocality": "León", "addressRegion": "Guanajuato", "addressCountry": "MX" },
+      "areaServed": [
+        { "@type": "City", "name": "León, Guanajuato" },
+        { "@type": "City", "name": "Guadalajara, Jalisco" },
+        { "@type": "City", "name": "Querétaro" },
+        { "@type": "Country", "name": "México" }
+      ],
+      "knowsAbout": ["Seguros de vida y ahorro", "Seguros de gastos médicos", "Seguro de auto", "Seguro de hogar", "Seguro de viajes", "Seguros para empresas", "Ahorro para el retiro", "Planeación patrimonial"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Seguros y asesoría patrimonial",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de vida y ahorro" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de gastos médicos" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de auto" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de hogar" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de viajes" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguros y fianzas para empresas" } }
+        ]
+      },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+524771320915", "email": "asesoria@arpatrimonial.com.mx", "availableLanguage": "es", "areaServed": "MX" },
+      "sameAs": ["https://www.facebook.com/asesoriapatrimonialAR", "https://www.instagram.com/ar_asesoriapatrimonial/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://arpatrimonial.com.mx/#sitio",
+      "url": "https://arpatrimonial.com.mx/",
+      "name": "AR Asesor Patrimonial",
+      "inLanguage": "es-MX",
+      "publisher": { "@id": "https://arpatrimonial.com.mx/#negocio" }
+    }
+  ]
 }
 </script>
 
-<!-- Tipografías: Playfair Display (títulos) + Inter (cuerpo) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<!-- GOOGLE ANALYTICS 4 (aún desactivado): cuando exista la propiedad GA4, descomenta este
+     bloque y reemplaza G-XXXXXXXXXX por el ID de medición (Admin > Flujos de datos).
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<!-- Tipografías: Playfair Display (títulos) + Inter (cuerpo), alojadas en este mismo sitio
+     (carpeta fonts/). Se precargan las dos principales para evitar saltos al cargar. -->
+<link rel="preload" href="fonts/playfair-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <script>document.documentElement.className = 'js';</script>
 <noscript><style>.preloader{display:none!important}</style></noscript>
 
 <style>
+/* Tipografías locales (subconjunto latino: incluye acentos, ñ, ¿ y ¡) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 600;font-display:swap;src:url('fonts/inter-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 500;font-display:swap;src:url('fonts/playfair-display-italic.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500 600;font-display:swap;src:url('fonts/playfair-display-normal.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* ==========================================================================
    1. VARIABLES — paleta tomada del logotipo (azul marino, azul, turquesa)
    ========================================================================== */
@@ -93,6 +164,7 @@
   --ink:   #0E2A4D;                  /* azul profundo para texto y secciones oscuras */
   --deep:  #091D38;                  /* pie de página */
   --blue:  #0898D4;                  /* azul brillante del centro del logo */
+  --blue-ink: #0A74A5;               /* versión más oscura del azul para texto (contraste AA) */
   --teal:  #24C2CE;                  /* turquesa de la diagonal del logo */
   --mist:  #EDF4F9;                  /* fondo claro suave */
   --paper: #FFFFFF;
@@ -266,7 +338,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .hero{position:relative;overflow:hidden;padding:calc(var(--hh) + clamp(34px,6vw,72px)) 0 clamp(52px,7vw,96px)}
 .hero__bg{position:absolute;inset:0;pointer-events:none;z-index:0}
 .hero__bg i{
-  position:absolute;top:-10%;height:125%;background:var(--mist);
+  position:absolute;top:-200px;height:2000px;background:var(--mist);
   transform:skewX(-22.6deg);animation:drift 16s ease-in-out infinite alternate;
 }
 .hero__bg i:nth-child(1){width:15vw;left:34%}
@@ -285,10 +357,10 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .hero__rot{
   margin-top:26px;font-size:clamp(1.1rem,1.7vw,1.4rem);color:var(--text);display:flex;flex-wrap:wrap;gap:.35em;align-items:baseline;
 }
-.rot{display:inline-grid;font-family:var(--serif);font-style:italic;font-weight:500;color:var(--blue);font-size:1.12em}
-.rot b{grid-area:1/1;font-weight:inherit;opacity:0;transform:translateY(70%);transition:opacity .5s var(--ease),transform .5s var(--ease);white-space:nowrap}
-.rot b.is-on{opacity:1;transform:none}
-.rot b.is-off{opacity:0;transform:translateY(-70%)}
+.rot{display:inline-grid;overflow:hidden;padding:.1em 0;margin:-.1em 0;font-family:var(--serif);font-style:italic;font-weight:500;color:var(--blue-ink);font-size:1.12em}
+.rot b{grid-area:1/1;font-weight:inherit;visibility:hidden;transform:translateY(110%);transition:transform .5s var(--ease);white-space:nowrap}
+.rot b.is-on{visibility:visible;transform:none}
+.rot b.is-off{visibility:visible;transform:translateY(-110%)}
 .hero__p{margin-top:22px;max-width:52ch;color:var(--muted);font-size:clamp(1rem,1.3vw,1.14rem)}
 .hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:36px}
 
@@ -309,6 +381,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .js .hero .in{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .js .hero .in-x{opacity:0;transform:translateX(50px);transition:opacity 1.2s .15s var(--ease),transform 1.2s .15s var(--ease)}
 .is-ready .hero .in,.is-ready .hero .in-x{opacity:1;transform:none}
+.js .hero h1.in{opacity:1}   /* el H1 es el elemento principal: se pinta de inmediato (mejora LCP) */
 
 /* ==========================================================================
    7. FRANJA DE ASEGURADORAS (marquesina)
@@ -339,7 +412,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .risk::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:0 50%;transition:transform 1.1s var(--ease)}
 .risk.is-in::after{transform:scaleX(1)}
 .risk:hover{padding-left:12px}
-.risk__n{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.2;color:var(--blue)}
+.risk__n{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.2;color:var(--blue-ink)}
 .risk__t{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.25;color:var(--ink)}
 .risk__d{grid-column:2;color:var(--muted);max-width:52ch}
 .circuit__note{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);color:var(--text);max-width:58ch}
@@ -362,7 +435,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .acc__item{border-bottom:1px solid var(--ink)}
 .acc__btn{width:100%;display:grid;grid-template-columns:52px 1fr 32px;align-items:center;gap:8px;text-align:left;padding:26px 0;transition:padding-left .4s var(--ease)}
 .acc__btn:hover{padding-left:10px}
-.acc__n{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--blue)}
+.acc__n{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--blue-ink)}
 .acc__t{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.15;color:var(--ink);letter-spacing:-.01em}
 .acc__ic{position:relative;width:20px;height:20px;justify-self:end}
 .acc__ic::before,.acc__ic::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--ink);transition:transform .4s var(--ease)}
@@ -397,7 +470,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 }
 .moment figure{overflow:hidden;aspect-ratio:4/5}
 .moment img{width:100%;height:100%;object-fit:cover}
-.moment__n{display:block;margin-top:22px;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.moment__n{display:block;margin-top:22px;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-ink)}
 .moment h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.2;color:var(--ink);margin:10px 0 12px}
 .moment p{color:var(--muted);margin-bottom:18px}
 
@@ -588,7 +661,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 <!-- ===== ENCABEZADO ===== -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr__in">
-    <a class="brand" href="#inicio" aria-label="AR Asesor Patrimonial — inicio">
+    <a class="brand" href="#inicio" aria-label="Arturo Rodríguez Asesor patrimonial — inicio">
       <span class="brand__tile"><svg viewBox="0 0 855 599" aria-hidden="true"><use href="#ar-mark"/></svg></span>
       <span class="brand__txt">
         <span class="brand__name">Arturo Rodríguez</span>
@@ -737,17 +810,17 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <!-- Fotos que cambian según el servicio abierto (mismo orden que la lista) -->
       <div class="svc__media reveal" id="svcMedia">
         <!-- FOTO: vida y ahorro -->
-        <img class="is-on" loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1614144477821-9daf217ae100?auto=format&fit=crop&w=900&q=70" alt="Familia latina reunida: papá, mamá y dos hijos">
+        <img class="is-on" loading="lazy" width="900" height="1125" src="servicio-vida-ahorro.webp" alt="Familia latina reunida: papá, mamá y dos hijos">
         <!-- FOTO: gastos médicos -->
-        <img loading="lazy" width="900" height="1125" src="https://images.pexels.com/photos/8460125/pexels-photo-8460125.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Médico explicando un diagnóstico a un paciente en un consultorio">
+        <img loading="lazy" width="900" height="1125" src="servicio-gastos-medicos.webp" alt="Médico explicando un diagnóstico a un paciente en un consultorio">
         <!-- FOTO: auto -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1441148345475-03a2e82f9719?auto=format&fit=crop&w=900&q=70" alt="Vista frontal de un auto">
+        <img loading="lazy" width="900" height="1125" src="servicio-auto.webp" alt="Vista frontal de un auto">
         <!-- FOTO: hogar -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=70" alt="Casa moderna con alberca">
+        <img loading="lazy" width="900" height="1125" src="servicio-hogar.webp" alt="Casa moderna con alberca">
         <!-- FOTO: viajes -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1593182440709-4b7b56482c55?auto=format&fit=crop&w=900&q=70" alt="Ala de un avión sobre las nubes">
+        <img loading="lazy" width="900" height="1125" src="servicio-viajes.webp" alt="Ala de un avión sobre las nubes">
         <!-- FOTO: empresas -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1657727534671-f0c753f3a098?auto=format&fit=crop&w=900&q=70" alt="Ejecutivo latino trabajando en una oficina corporativa">
+        <img loading="lazy" width="900" height="1125" src="servicio-empresas.webp" alt="Ejecutivo latino trabajando en una oficina corporativa">
       </div>
 
       <div class="acc reveal" id="acc" data-delay=".1">
@@ -826,7 +899,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <article class="moment reveal">
         <figure class="wipe">
           <!-- FOTO: pareja caminando -->
-          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1625690987114-86f5af994b49?auto=format&fit=crop&w=800&q=70" alt="Pareja caminando abrazada">
+          <img loading="lazy" width="800" height="1000" src="etapa-retiro.webp" alt="Pareja caminando abrazada">
         </figure>
         <span class="moment__n">Retiro</span>
         <h3>Estoy empezando a planear mi retiro</h3>
@@ -837,7 +910,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <article class="moment reveal" data-delay=".12">
         <figure class="wipe">
           <!-- FOTO: médico con abuelo y nieto -->
-          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1758691462666-6470b740f544?auto=format&fit=crop&w=800&q=70" alt="Médico atendiendo a un abuelo y a su nieto en consulta">
+          <img loading="lazy" width="800" height="1000" src="etapa-salud.webp" alt="Médico atendiendo a un abuelo y a su nieto en consulta">
         </figure>
         <span class="moment__n">Salud</span>
         <h3>Quiero cuidar mi salud y la de mi familia</h3>
@@ -848,7 +921,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <article class="moment reveal" data-delay=".24">
         <figure class="wipe">
           <!-- FOTO: mamá con bebé -->
-          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1560707854-fb9a10eeaace?auto=format&fit=crop&w=800&q=70" alt="Mamá sonriendo con su bebé en brazos">
+          <img loading="lazy" width="800" height="1000" src="etapa-educacion.webp" alt="Mamá sonriendo con su bebé en brazos">
         </figure>
         <span class="moment__n">Educación</span>
         <h3>Mi hijo acaba de llegar</h3>
@@ -859,7 +932,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <article class="moment reveal" data-delay=".36">
         <figure class="wipe">
           <!-- FOTO: abuelo con su nieto (herencia) -->
-          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1584653220705-c897cf3416c9?auto=format&fit=crop&w=800&q=70" alt="Abuelo cargando a su nieto sobre los hombros frente a su casa">
+          <img loading="lazy" width="800" height="1000" src="etapa-herencia.webp" alt="Abuelo cargando a su nieto sobre los hombros frente a su casa">
         </figure>
         <span class="moment__n">Herencia</span>
         <h3>Quiero dejar tranquila a mi familia</h3>
@@ -959,7 +1032,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
     <figure class="zone__fig">
       <div class="zone__img wipe">
         <!-- FOTO: asesor explicando un servicio en una oficina (banco de imágenes) -->
-        <img class="px" data-speed=".06" loading="lazy" width="1100" height="735" src="https://images.pexels.com/photos/8853390/pexels-photo-8853390.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Asesor explicando un servicio a unos clientes en una oficina">
+        <img class="px" data-speed=".06" loading="lazy" width="1100" height="735" src="donde-atiendo-asesor.webp" alt="Asesor explicando un servicio a unos clientes en una oficina">
       </div>
     </figure>
   </div>
@@ -1035,9 +1108,12 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
   <div class="wrap">
     <div class="ftr__grid">
       <div>
-        <a class="brand" href="#inicio" aria-label="AR Asesor Patrimonial — inicio">
+        <a class="brand" href="#inicio" aria-label="Arturo Rodríguez Asesor patrimonial — inicio">
           <span class="brand__tile" style="background:var(--navy)"><svg viewBox="0 0 855 599" aria-hidden="true"><use href="#ar-mark"/></svg></span>
-          <span class="brand__txt"><span class="brand__name">Arturo Rodríguez</span><span class="brand__sub">Asesor patrimonial</span></span>
+          <span class="brand__txt">
+            <span class="brand__name">Arturo Rodríguez</span>
+            <span class="brand__sub">Asesor patrimonial</span>
+          </span>
         </a>
         <p class="ftr__about">Asesoría patrimonial integral que protege a las familias de México.</p>
       </div>
@@ -1075,7 +1151,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 </footer>
 
 <!-- ===== BOTÓN FLOTANTE DE WHATSAPP (visible en toda la página) ===== -->
-<a class="wa" href="https://wa.me/524771320915" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<a class="wa" href="https://wa.me/524771320915" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
   <span class="wa__label">Escríbeme por WhatsApp</span>
   <span class="wa__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></span>
 </a>
