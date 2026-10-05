@@ -14,7 +14,7 @@
    1. WHATSAPP  → ya está puesto: 524771320915 (busca "wa.me" para encontrar
                   los botones si hay que cambiarlo más adelante).
    2. CORREO    → busca  asesoria@arpatrimonial.com.mx
-   3. REDES     → solo Facebook, en el pie de página (busca  facebook.com).
+   3. REDES     → Facebook e Instagram, en el pie de página (busca  facebook.com / instagram.com).
    4. DOMINIO   → busca  www.tudominio.com  (canonical, og:url, og:image, JSON-LD).
    5. FOTOS     → 4 fotos ya son de Arturo (archivos .webp junto a este index.html:
                   arturo-saludo-cliente, arturo-entrega-documentos, arturo-retrato-1,
@@ -70,8 +70,7 @@
   "image": "https://www.tudominio.com/og-image.jpg",
   "address": { "@type": "PostalAddress", "addressLocality": "León", "addressRegion": "Guanajuato", "addressCountry": "MX" },
   "areaServed": ["León, Guanajuato", "Guadalajara, Jalisco", "Querétaro", "México"],
-  "openingHours": "09:00-18:00",
-  "sameAs": ["https://www.facebook.com/asesoriapatrimonialAR"]
+  "sameAs": ["https://www.facebook.com/asesoriapatrimonialAR", "https://www.instagram.com/ar_asesoriapatrimonial/"]
 }
 </script>
 
@@ -293,10 +292,6 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .hero__p{margin-top:22px;max-width:52ch;color:var(--muted);font-size:clamp(1rem,1.3vw,1.14rem)}
 .hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:36px}
 
-.status{display:flex;align-items:flex-start;gap:10px}
-.dot{flex:none;width:10px;height:10px;margin-top:.5em;border-radius:50%;background:var(--muted);position:relative}
-.dot.is-on{background:var(--wa)}
-.dot.is-on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--wa);animation:ping 2s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
 
 /* Foto del hero: corte diagonal con la misma inclinación de la diagonal del logo */
@@ -490,9 +485,6 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .cinfo a{position:relative;display:inline-block;text-decoration:none;font-weight:500;word-break:break-word}
 .cinfo a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
 .cinfo a:hover::after{transform:scaleX(1)}
-.cinfo .status{color:#fff}
-.cinfo .status .dot{background:rgba(255,255,255,.5)}
-.cinfo .status .dot.is-on{background:var(--wa)}
 
 /* Formulario: campos con línea inferior, sin recuadros */
 .form h3{font-family:var(--serif);font-weight:600;font-size:1.7rem;margin-bottom:8px}
@@ -735,17 +727,17 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <!-- Fotos que cambian según el servicio abierto (mismo orden que la lista) -->
       <div class="svc__media reveal" id="svcMedia">
         <!-- FOTO: vida y ahorro -->
-        <img class="is-on" loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=900&q=70" alt="Familia tomada de la mano al atardecer">
+        <img class="is-on" loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1614144477821-9daf217ae100?auto=format&fit=crop&w=900&q=70" alt="Familia latina reunida: papá, mamá y dos hijos">
         <!-- FOTO: gastos médicos -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?auto=format&fit=crop&w=900&q=70" alt="Médico atendiendo a un niño junto a su mamá">
+        <img loading="lazy" width="900" height="1125" src="https://images.pexels.com/photos/4266939/pexels-photo-4266939.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Médico conversando con una paciente durante una consulta">
         <!-- FOTO: auto -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1551952237-954a0e68786c?auto=format&fit=crop&w=900&q=70" alt="Auto circulando por una carretera abierta">
+        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1441148345475-03a2e82f9719?auto=format&fit=crop&w=900&q=70" alt="Vista frontal de un auto">
         <!-- FOTO: hogar -->
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=70" alt="Casa moderna con alberca">
         <!-- FOTO: viajes -->
         <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1593182440709-4b7b56482c55?auto=format&fit=crop&w=900&q=70" alt="Ala de un avión sobre las nubes">
         <!-- FOTO: empresas -->
-        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1687422808191-93810cd07ab0?auto=format&fit=crop&w=900&q=70" alt="Dueño de un negocio frente a su local">
+        <img loading="lazy" width="900" height="1125" src="https://images.unsplash.com/photo-1657727534671-f0c753f3a098?auto=format&fit=crop&w=900&q=70" alt="Ejecutivo latino trabajando en una oficina corporativa">
       </div>
 
       <div class="acc reveal" id="acc" data-delay=".1">
@@ -856,8 +848,8 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 
       <article class="moment reveal" data-delay=".36">
         <figure class="wipe">
-          <!-- FOTO: papá abrazando a su hija -->
-          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1624272864537-8ecc72b67958?auto=format&fit=crop&w=800&q=70" alt="Papá abrazando y riendo con su hija">
+          <!-- FOTO: abuelo con su nieto (herencia) -->
+          <img loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1584653220705-c897cf3416c9?auto=format&fit=crop&w=800&q=70" alt="Abuelo cargando a su nieto sobre los hombros frente a su casa">
         </figure>
         <span class="moment__n">Herencia</span>
         <h3>Quiero dejar tranquila a mi familia</h3>
@@ -943,7 +935,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 <section class="sec zone" id="zona">
   <div class="wrap zone__grid">
     <div>
-      <p class="eyebrow reveal">Dónde atiendo</p>
+      <p class="eyebrow reveal">¿Dónde atiendo?</p>
       <h2 class="h2 reveal" data-delay=".08">En León, en el Bajío y <em>en todo el país</em></h2>
       <p class="lead reveal" data-delay=".14">Nos vemos en el lugar que mejor te acomode, o resolvemos todo a distancia.</p>
 
@@ -956,8 +948,8 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 
     <figure class="zone__fig">
       <div class="zone__img wipe">
-        <!-- FOTO: carretera al amanecer -->
-        <img class="px" data-speed=".06" loading="lazy" width="800" height="1000" src="https://images.unsplash.com/photo-1526478512290-5397e7d2ca6a?auto=format&fit=crop&w=900&q=70" alt="Carretera abierta al amanecer">
+        <!-- FOTO: Arturo en una cita con un cliente -->
+        <img class="px" data-speed=".06" loading="lazy" width="1086" height="1448" src="arturo-reunion-oficina.webp" alt="Arturo Rodríguez atendiendo a un cliente en una cita en oficina">
       </div>
     </figure>
   </div>
@@ -978,8 +970,6 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       <ul class="cinfo reveal">
         <li><small>WhatsApp</small><a href="https://wa.me/524771320915" target="_blank" rel="noopener">477 132 0915</a></li>
         <li><small>Correo</small><a href="mailto:asesoria@arpatrimonial.com.mx">asesoria@arpatrimonial.com.mx</a></li>
-        <li><small>Horario</small><span class="status"><span class="dot" id="dot2"></span><span id="status2">De 9:00 a 18:00 hrs (puede variar)</span></span></li>
-        <li><small>Ubicación</small><span>León, Guanajuato · citas en lugar acordado</span></li>
       </ul>
     </div>
 
@@ -992,7 +982,15 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <label class="field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required></label>
         <label class="field"><span>WhatsApp o teléfono</span><input type="tel" name="telefono" autocomplete="tel" placeholder="10 dígitos" required></label>
       </div>
-      <label class="field"><span>Correo electrónico</span><input type="email" name="correo" autocomplete="email" placeholder="tucorreo@ejemplo.com"></label>
+      <label class="field"><span>Correo electrónico</span><input type="email" name="correo" autocomplete="email" placeholder="tucorreo@ejemplo.com" required></label>
+      <label class="field"><span>¿Cómo quieres que te contacte?</span>
+        <select name="contacto_preferido" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option>WhatsApp</option>
+          <option>Teléfono</option>
+          <option>Correo electrónico</option>
+        </select>
+      </label>
       <label class="field"><span>¿Qué te interesa?</span>
         <select name="interes" required>
           <option value="" disabled selected>Selecciona una opción</option>
@@ -1055,12 +1053,13 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         <h4>Redes</h4>
         <ul>
           <li><a href="https://www.facebook.com/asesoriapatrimonialAR" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ar_asesoriapatrimonial/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
     </div>
     <div class="ftr__legal">
       <p>© <span id="year">2026</span> AR Asesor Patrimonial. Todos los derechos reservados. La información de este sitio es orientativa; las coberturas, primas y condiciones dependen de cada aseguradora.</p>
-      <p class="ftr__right"><a href="#" onclick="return false">Aviso de privacidad</a><br>Sitio elaborado por: gabrieljuarch</p>
+      <p class="ftr__right"><a href="#" onclick="return false">Aviso de privacidad</a><br>Sitio elaborado por <a href="https://gabrieljuarch.com" target="_blank" rel="noopener">Gabriel Juárez</a></p>
     </div>
   </div>
 </footer>
@@ -1192,25 +1191,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
   }
   items.forEach(function (it) { $('.acc__btn', it).addEventListener('click', function () { openItem(it); }); });
 
-  /* ---------- 8. Horario en vivo (hora de Ciudad de México) ---------- */
-  function updateStatus() {
-    var h;
-    try {
-      h = parseInt(new Intl.DateTimeFormat('en-US', { timeZone: 'America/Mexico_City', hour: 'numeric', hourCycle: 'h23' }).format(new Date()), 10);
-    } catch (e) { h = new Date().getHours(); }
-    var open = h >= 9 && h < 18;
-    [['dot2', 'status2']].forEach(function (p) {
-      var d = document.getElementById(p[0]), s = document.getElementById(p[1]);
-      if (!d || !s) return;
-      d.classList.toggle('is-on', open);
-      s.textContent = open ? 'Atendiendo ahora · 9:00 a 18:00 hrs'
-                           : 'Fuera de horario · te respondo en cuanto abra (9:00 a 18:00)';
-    });
-  }
-  updateStatus();
-  setInterval(updateStatus, 60000);
-
-  /* ---------- 9. Movimiento sutil de las diagonales con el cursor ---------- */
+  /* ---------- 8. Movimiento sutil de las diagonales con el cursor ---------- */
   var heroBg = $('.hero__bg');
   if (heroBg && !reduce && window.matchMedia('(hover:hover)').matches) {
     $('.hero').addEventListener('mousemove', function (e) {
