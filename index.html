@@ -543,6 +543,16 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .wa__btn svg{width:34px;height:34px;fill:#fff}
 
 /* ==========================================================================
+   17b. SOLO SMARTPHONE (hasta 767 px): sin fotos en Servicios, Sobre mí y
+   ¿Dónde atiendo? En tablet y escritorio se ven normal.
+   ========================================================================== */
+@media (max-width:767px){
+  .svc__media,
+  .about__fig,
+  .zone__fig{display:none}
+}
+
+/* ==========================================================================
    18. ACCESIBILIDAD — reducir movimiento
    ========================================================================== */
 @media (prefers-reduced-motion:reduce){
