@@ -24,7 +24,8 @@
                   cambiar una, sube la nueva .webp y reemplaza el valor de src="...".
                   Sin uso: arturo-retrato-2.webp y arturo-reunion-oficina.webp.
    6. COLORES   → variables CSS al inicio de <style> (sección :root).
-   7. FORMULARIO→ busca  INTEGRAR ENVÍO  en el <script> final.
+   7. FORMULARIO→ se envía con Web3Forms: busca  access_key  (campo oculto del formulario)
+                  y pega la clave del cliente. Los mensajes llegan por correo.
    8. SEO       → título y descripción de Google: busca  EDITAR TÍTULO Y DESCRIPCIÓN
                   (justo debajo de este comentario). Los datos para Google del negocio
                   (teléfono, redes, servicios) están en el bloque  application/ld+json.
@@ -586,6 +587,9 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
 .check a{color:#fff}
 .form__msg{margin-top:22px;padding-left:14px;border-left:3px solid var(--teal);color:#fff;display:none}
 .form__msg.is-show{display:block}
+.form__msg.is-error{border-left-color:#FF8A80}
+.form__msg a{color:#fff;font-weight:600}
+.form button[disabled]{opacity:.7;cursor:progress}
 
 /* ==========================================================================
    16. PIE DE PÁGINA
@@ -1058,18 +1062,23 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
       </ul>
     </div>
 
-    <!-- Formulario estático por ahora: el envío se integra después (ver script) -->
+    <!-- FORMULARIO: se envía con Web3Forms (api.web3forms.com) y llega por correo.
+         Clave de PRUEBA (correo de Gabriel). Antes de entregar, cambiarla por la del cliente. -->
     <form class="form reveal" id="form" novalidate>
+      <input type="hidden" name="access_key" value="42823b94-e20e-41f2-b72f-16c2b6188a9c">
+      <input type="hidden" name="subject" value="Nuevo contacto desde arpatrimonial.com.mx">
+      <input type="hidden" name="from_name" value="Sitio web AR Asesor Patrimonial">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <h3>Déjame tus datos</h3>
       <p>Te contacto por WhatsApp o correo. Sin compromiso.</p>
 
       <div class="form__row form__row--2">
-        <label class="field"><span>Nombre</span><input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required></label>
-        <label class="field"><span>WhatsApp o teléfono</span><input type="tel" name="telefono" autocomplete="tel" placeholder="10 dígitos" required></label>
+        <label class="field"><span>Nombre</span><input type="text" name="Nombre" autocomplete="name" placeholder="Tu nombre" required></label>
+        <label class="field"><span>WhatsApp o teléfono</span><input type="tel" name="Telefono" autocomplete="tel" placeholder="10 dígitos" required></label>
       </div>
-      <label class="field"><span>Correo electrónico</span><input type="email" name="correo" autocomplete="email" placeholder="tucorreo@ejemplo.com" required></label>
+      <label class="field"><span>Correo electrónico</span><input type="email" name="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required></label>
       <label class="field"><span>¿Cómo quieres que te contacte?</span>
-        <select name="contacto_preferido" required>
+        <select name="Como_prefiere_que_lo_contacten" required>
           <option value="" disabled selected>Selecciona una opción</option>
           <option>WhatsApp</option>
           <option>Teléfono</option>
@@ -1077,7 +1086,7 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
         </select>
       </label>
       <label class="field"><span>¿Qué te interesa?</span>
-        <select name="interes" required>
+        <select name="Interes" required>
           <option value="" disabled selected>Selecciona una opción</option>
           <option>Seguro de vida y ahorro (retiro, educación, herencia)</option>
           <option>Seguro de gastos médicos</option>
@@ -1088,10 +1097,10 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
           <option>No lo tengo claro, necesito asesoría</option>
         </select>
       </label>
-      <label class="field"><span>Cuéntame un poco (opcional)</span><textarea name="mensaje" rows="3" placeholder="Ej. Tengo dos hijos y quiero empezar a ahorrar para su educación"></textarea></label>
+      <label class="field"><span>Cuéntame un poco (opcional)</span><textarea name="Mensaje" rows="3" placeholder="Ej. Tengo dos hijos y quiero empezar a ahorrar para su educación"></textarea></label>
 
       <label class="check">
-        <input type="checkbox" name="privacidad" required>
+        <input type="checkbox" name="Acepto_aviso_de_privacidad" value="Sí" required>
         <!-- EDITAR: enlazar el Aviso de Privacidad real cuando esté listo -->
         <span>He leído y acepto el <a href="#" onclick="return false">aviso de privacidad</a>.</span>
       </label>
@@ -1290,18 +1299,57 @@ section[id]{scroll-margin-top:calc(var(--hh) - 8px)}
     });
   }
 
-  /* ---------- 10. Formulario (estático por ahora) ---------- */
-  var form = $('#form'), msg = $('#formMsg');
+  /* ---------- 10. Formulario: envío por correo con Web3Forms ---------- */
+  var form = $('#form'), msg = $('#formMsg'), sendBtn = $('button[type="submit"]', form);
+  var sendLabel = sendBtn.firstChild.nodeValue;
+
+  function showMsg(text, isError, withWhatsApp) {
+    msg.textContent = text;
+    msg.classList.add('is-show');
+    msg.classList.toggle('is-error', !!isError);
+    if (withWhatsApp) {
+      msg.appendChild(document.createTextNode(' Escríbeme por '));
+      var a = document.createElement('a');
+      a.href = 'https://wa.me/524771320915'; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'WhatsApp (477 132 0915)';
+      msg.appendChild(a);
+      msg.appendChild(document.createTextNode('.'));
+    }
+  }
+  function resetBtn() { sendBtn.disabled = false; sendBtn.firstChild.nodeValue = sendLabel; }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (form.botcheck && form.botcheck.checked) return;            // antispam: los bots lo marcan
 
-    /* INTEGRAR ENVÍO: aquí se conectará el envío real (por ejemplo Formspree,
-       EmailJS o un PHP en Hostinger). Datos disponibles: new FormData(form).
-       Mientras tanto solo se muestra el mensaje de confirmación. */
-    msg.textContent = '¡Gracias! Recibimos tus datos. Te contactaré por WhatsApp o correo lo antes posible.';
-    msg.classList.add('is-show');
-    form.reset();
+    var data = new FormData(form);
+    if (!data.get('access_key') || String(data.get('access_key')).indexOf('PEGAR_AQUI') === 0) {
+      console.warn('Formulario sin access_key de Web3Forms: ver instrucciones en el HTML.');
+      showMsg('El formulario aún no está activo.', true, true);
+      return;
+    }
+
+    var via = (data.get('Como_prefiere_que_lo_contacten') || 'WhatsApp').toString();
+    if (via !== 'WhatsApp') via = via.toLowerCase();
+    sendBtn.disabled = true; sendBtn.firstChild.nodeValue = 'Enviando… ';
+    msg.classList.remove('is-show');
+
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 15000);
+
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data, signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) {
+          showMsg('¡Gracias! Recibí tus datos y te contactaré por ' + via + ' lo antes posible.', false, false);
+          form.reset();
+        } else {
+          showMsg('No se pudo enviar tu mensaje.', true, true);
+        }
+      })
+      .catch(function () { showMsg('No se pudo enviar tu mensaje.', true, true); })
+      .then(function () { clearTimeout(timer); resetBtn(); });
   });
 
   /* ---------- 11. Año del pie de página ---------- */
